@@ -2,28 +2,30 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const IntentForm = require('./models/IntentForm'); // seu schema Mongoose
+const IntentForm = require('./models/IntentForm');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para JSON (necessário para o fetch do frontend funcionar)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Serve arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Configuração do EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Conexão MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error('Erro MongoDB:', err));
 
-// Rota GET para servir index.html diretamente (caso não use ejs)
+// Rota principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.render('index'); // Isso espera um arquivo views/index.ejs
 });
 
-// Rota POST para receber o formulário
+// Rota POST do formulário
 app.post('/form', async (req, res) => {
   try {
     const novoForm = new IntentForm(req.body);
