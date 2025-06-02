@@ -1,4 +1,4 @@
-[<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
@@ -146,6 +146,19 @@
       padding: 2rem 1rem;
       font-size: 0.9rem;
     }
+    .mensagem-sucesso {
+      background: linear-gradient(135deg, #d1ffea, #a2f4cf);
+      color: #065f46;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 700px;
+      margin: 2rem auto 0;
+      display: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -183,7 +196,7 @@
   <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
     <div style="flex: 1 1 400px; background-color: #004d6e; color: white; padding: 2rem; border-radius: 1rem;">
       <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">O Desafio</h3>
-      <p style="font-size: 1rem; line-height: 1.6;">Sobrecarga no cuidado, desemprego, culpa, solidão. Essas são as realidades enfrentadas por mães atípicas todos os dias. Elas cuidam de tudo — menos delas mesmas.</p>
+      <p style="font-size: 1rem; line-height: 1.6;">Sobrecarga no cuidado, desemprego, culpa, solidão. Essas são as realidades enfrentadas por mães atípicas todos os dias. Elas cuidam de tudo, menos delas mesmas.</p>
     </div>
     <div style="flex: 1 1 400px; background-color: #fced00; color: #001d36; padding: 2rem; border-radius: 1rem;">
       <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Nossa Solução</h3>
@@ -199,7 +212,7 @@
     <div class="card"><h3>+2,5M</h3><p>Crianças com TEA</p></div>
     <div class="card"><h3>+1M</h3><p>Casos no Sudeste</p></div>
     <div class="card amarelo"><h3>+3,6M</h3><p>Mulheres desempregadas</p></div>
-    <div class="card amarelo"><h3>47%</h3><p>Sentem culpa pelo diagnóstico</p></div>
+    <div class="card amarelo"><h3>47%</h3><p>Das mães sentem culpa pelo diagnóstico</p></div>
   </div>
 </section>
  <section class="como-fazer" style="background-color: #0c267a; color: white; padding: 4rem 1.5rem 6rem 1.5rem;">
@@ -266,30 +279,50 @@
   </div>
 </section>
 
-  <section class="apoio" id="formulario" style="background-color: #f9f9f9; padding: 5rem 1.5rem;">
-  <h2 style="text-align: center; font-size: 2.2rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #004d6e; margin-bottom: 0.5rem;">
-    Seja um apoiador
-  </h2>
-  <p style="text-align:center; max-width: 600px; margin: 0 auto 3rem auto; font-size: 1rem; color: #333;">
-    Preencha o formulário abaixo e nossa equipe entrará em contato para formalizar seu apoio.
-  </p>
-  <form action="/form" method="POST" style="max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-    <input type="text" name="nome" placeholder="Nome completo" required style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
-    <input type="email" name="email" placeholder="E-mail" required style="padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
-    <input type="text" name="telefone" placeholder="Telefone" style="padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
-    <select name="tipoApoio" required style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
-      <option value="">Tipo de apoio</option>
-      <option value="Doação Pessoa Física">Doação Pessoa Física</option>
-      <option value="Doação Pessoa Jurídica">Doação Pessoa Jurídica</option>
-      <option value="Emenda Parlamentar">Emenda Parlamentar</option>
-    </select>
-    <input type="text" name="valorEstimado" placeholder="Valor estimado (opcional)" style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
-    <textarea name="mensagem" placeholder="Mensagem ou intenção de apoio" style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; min-height: 120px;"></textarea>
-    <button type="submit" style="grid-column: span 2; background-color: #004d6e; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
-      Enviar Intenção
-    </button>
-  </form>
-</section>
+ <section class="apoio" id="formulario">
+    <h2>Seja um apoiador</h2>
+    <p style="text-align:center; max-width: 600px; margin: 0 auto 3rem auto; font-size: 1rem; color: #333;">
+      Preencha o formulário abaixo e nossa equipe entrará em contato para formalizar seu apoio.
+    </p>
+    <div id="mensagemSucesso" class="mensagem-sucesso">
+      <p> <strong>Obrigado!</strong> Recebemos a sua intenção de doação. Em breve entraremos em contato. </p>
+    </div>
+    <form id="formApoio" class="form-grid">
+      <input type="text" name="nome" placeholder="Nome completo" required style="grid-column: span 2;">
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="text" name="telefone" placeholder="Telefone">
+      <select name="tipoApoio" required style="grid-column: span 2;">
+        <option value="">Tipo de apoio</option>
+        <option value="Doação Pessoa Física">Doação Pessoa Física</option>
+        <option value="Doação Pessoa Jurídica">Doação Pessoa Jurídica</option>
+        <option value="Emenda Parlamentar">Emenda Parlamentar</option>
+      </select>
+      <input type="text" name="valorEstimado" placeholder="Valor estimado (opcional)" style="grid-column: span 2;">
+      <textarea name="mensagem" placeholder="Mensagem ou intenção de apoio" style="grid-column: span 2; min-height: 120px;"></textarea>
+      <button type="submit" style="grid-column: span 2;">Enviar Intenção</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("formApoio").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const dados = Object.fromEntries(new FormData(form));
+
+      try {
+        await fetch("/form", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dados)
+        });
+        document.getElementById("mensagemSucesso").style.display = "block";
+        form.reset();
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        alert("Ocorreu um erro. Tente novamente.");
+      }
+    });
+  </script>
 
   <footer>
     <p>&copy; 2025 Projeto Laços Atípicos. Todos os direitos reservados</p>

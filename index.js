@@ -2,44 +2,39 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const IntentForm = require('./models/IntentForm');
-
+const IntentForm = require('./models/IntentForm'); // seu schema Mongoose
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
+// Middleware para JSON (necessário para o fetch do frontend funcionar)
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
-// Conexão com MongoDB
+// Serve arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Conexão MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error('Erro MongoDB:', err));
 
-// Rota principal
+// Rota GET para servir index.html diretamente (caso não use ejs)
 app.get('/', (req, res) => {
-  res.render('index');
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-// Rota de formulário
+// Rota POST para receber o formulário
 app.post('/form', async (req, res) => {
   try {
     const novoForm = new IntentForm(req.body);
     await novoForm.save();
-    res.send(`
-      <h2>Obrigado pelo seu apoio!</h2>
-      <p>Entraremos em contato em breve.</p>
-      <a href="/">Voltar para o site</a>
-    `);
+    res.status(200).json({ message: 'Intenção registrada com sucesso' });
   } catch (err) {
     console.error(err);
-    res.status(500).send('Erro ao salvar formulário.');
+    res.status(500).json({ error: 'Erro ao salvar intenção' });
   }
 });
 
-// Inicializa o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
