@@ -1,0 +1,19 @@
+{
+  "name": "lacos-atipicos",
+  "version": "1.0.0",
+  "description": "Landing page com formulário de intenção de apoio para o projeto Laços Atípicos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Tais Lopes",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  }
+}

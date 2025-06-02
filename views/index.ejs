@@ -1,0 +1,298 @@
+[<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laços Atípicos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-escuro: #001d36;
+      --azul: #004d6e;
+      --amarelo: #fced00;
+      --vermelho: #872f06;
+      --branco: #ffffff;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--branco);
+      color: var(--azul-escuro);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    header.hero {
+      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+      color: var(--branco);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .btn-doar {
+      margin-top: 1.5rem;
+      background: var(--amarelo);
+      color: var(--azul);
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .btn-doar:hover {
+      background: #e1da00;
+    }
+    section {
+      padding: 2rem 1rem;
+    }
+    @media (min-width: 768px) {
+      section {
+        padding: 4rem 2rem;
+      }
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--azul);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .grid, .form-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .card {
+      background: var(--branco);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .card h3 {
+      font-size: 2rem;
+      color: var(--amarelo);
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .box-responsivo {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .box-responsivo {
+        flex: 1 1 45%;
+        max-width: 45%;
+      }
+    }
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+    form input,
+    form select,
+    form textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    form button {
+      background: var(--azul);
+      color: var(--branco);
+      border: none;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: var(--azul-escuro);
+    }
+    footer {
+      background: var(--azul-escuro);
+      color: var(--branco);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+<header class="hero" style="background: linear-gradient(135deg, #004d6e, #001d36); color: white; padding: 4rem 1.5rem; display: flex; align-items: center; justify-content: center; text-align: center;">
+  <div style="max-width: 960px; width: 100%;">
+    <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem;">Laços Atípicos</h1>
+    <p style="font-size: 1.125rem; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+      Um programa do Instituto Macedônia com a Clínica Start para fortalecer mães atípicas, ampliando o acesso a direitos e construindo caminhos de autonomia com acolhimento, formação e informação.
+    </p>
+    <div style="margin-top: 2rem;">
+      <a href="#formulario" class="btn-doar" style="background: #fced00; color: #004d6e; padding: 1rem 2rem; font-weight: 700; font-size: 1rem; text-decoration: none; border-radius: 8px; display: inline-block; transition: all 0.3s;">
+        Quero Apoiar
+      </a>
+    </div>
+  </div>
+</header>
+
+
+
+ <section class="proposito-section" style="background-color: #f9f9f9; padding: 4rem 1.5rem;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+    <div style="flex: 1 1 40%;">
+      <h2 style="color: #004d6e; font-size: 2.2rem; font-weight: 800; margin: 0;">Por que criamos<br> o Laços Atípicos?</h2>
+    </div>
+    <div style="flex: 1 1 55%;">
+      <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+        Milhares de mães abandonam suas carreiras por falta de apoio ao cuidar de filhos com deficiência. Sem acesso a direitos e rede de suporte, vivem à margem. O Laços Atípicos nasce para romper esse ciclo, com acolhimento e oportunidades reais.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="bloco-dor-solucao" style="background-color: #ffffff; padding: 4rem 1.5rem;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+    <div style="flex: 1 1 400px; background-color: #004d6e; color: white; padding: 2rem; border-radius: 1rem;">
+      <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">O Desafio</h3>
+      <p style="font-size: 1rem; line-height: 1.6;">Sobrecarga no cuidado, desemprego, culpa, solidão. Essas são as realidades enfrentadas por mães atípicas todos os dias. Elas cuidam de tudo — menos delas mesmas.</p>
+    </div>
+    <div style="flex: 1 1 400px; background-color: #fced00; color: #001d36; padding: 2rem; border-radius: 1rem;">
+      <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Nossa Solução</h3>
+      <p style="font-size: 1rem; line-height: 1.6;">Unimos acolhimento psicossocial, letramento em direitos e formação empreendedora para que essas mulheres possam reconstruir sua trajetória com dignidade e força.</p>
+    </div>
+  </div>
+</section>
+
+  <section class="cenarios" style="background-color: #f9f9f9; padding: 4rem 1.5rem;">
+  <h2 style="text-align: center; color: #004d6e; font-size: 2rem;">Por que esse projeto é urgente?</h2>
+  <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto; font-size: 1rem; color: #333;">Os dados mostram um cenário crítico de exclusão, invisibilidade e desigualdade. Apoiar o Laços Atípicos é agir sobre um problema real e urgente.</p>
+  <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+    <div class="card"><h3>+2,5M</h3><p>Crianças com TEA</p></div>
+    <div class="card"><h3>+1M</h3><p>Casos no Sudeste</p></div>
+    <div class="card amarelo"><h3>+3,6M</h3><p>Mulheres desempregadas</p></div>
+    <div class="card amarelo"><h3>47%</h3><p>Sentem culpa pelo diagnóstico</p></div>
+  </div>
+</section>
+ <section class="como-fazer" style="background-color: #0c267a; color: white; padding: 4rem 1.5rem 6rem 1.5rem;">
+  <h2 style="text-align: center; font-size: 2.4rem; font-weight: 900; font-family: 'Montserrat', sans-serif; letter-spacing: -0.5px; margin-bottom: 4rem; color: #fced00; text-transform: uppercase;">
+    Como vamos transformar realidades
+  </h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1100px; margin: 0 auto;">
+    <div style="background-color: #00b1cd; padding: 2.2rem; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+      <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: white; text-align: left;">Bloco 1: Acesso e Letramento em Direitos</h3>
+      <ul style="margin: 0; padding-left: 1.2rem; font-size: 1rem; line-height: 1.7;">
+        <li>Jornadas educativas sobre TEA e direitos das famílias neurodivergentes</li>
+        <li>Acompanhamento com visitas domiciliares</li>
+        <li>Orientação social e jurídica especializada</li>
+      </ul>
+    </div>
+    <div style="background-color: #00b1cd; padding: 2.2rem; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+      <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: white; text-align: left;">Bloco 2: Empreendedorismo para Autonomia</h3>
+      <ul style="margin: 0; padding-left: 1.2rem; font-size: 1rem; line-height: 1.7;">
+        <li>Curso de 40h adaptado à rotina de mães cuidadoras</li>
+        <li>Conteúdo sobre finanças, marketing, vendas e autoconhecimento</li>
+        <li>Certificado e plano de negócio individual</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="resultados-esperados" style="background-color: #e7e8ec; color: white; padding: 4rem 1.5rem;">
+  <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2.5rem; font-weight: 800;">O que vamos conquistar juntos</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
+    <div style="background-color: #1f2678; padding: 2rem; border-radius: 1rem; box-shadow: 0 6px 14px rgba(0,0,0,0.2);">
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #fced00;">Autonomia e Renda</h3>
+      <p style="font-size: 1rem; line-height: 1.6;">Mães com ferramentas reais para empreender e gerar renda de forma sustentável.</p>
+    </div>
+    <div style="background-color: #1f2678; padding: 2rem; border-radius: 1rem; box-shadow: 0 6px 14px rgba(0,0,0,0.2);">
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #fced00;">Acesso a Direitos</h3>
+      <p style="font-size: 1rem; line-height: 1.6;">Famílias que acessam com dignidade os serviços públicos que lhes são garantidos.</p>
+    </div>
+    <div style="background-color: #1f2678; padding: 2rem; border-radius: 1rem; box-shadow: 0 6px 14px rgba(0,0,0,0.2);">
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #fced00;">Rede de Apoio</h3>
+      <p style="font-size: 1rem; line-height: 1.6;">Fortalecimento do senso de pertencimento entre mães, famílias e comunidade.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contribuir" style="background-color: #f9f9f9; padding: 4rem 1.5rem;">
+  <h2 style="text-align: center; color: #004d6e; margin-bottom: 2rem; font-size: 1.8rem;">Como Contribuir</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
+    <div style="background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 2rem; text-align: center;">
+      <h3 style="color: #fced00; font-size: 1.6rem; margin-bottom: 0.5rem;">R$ 20mil</h3>
+      <p style="margin: 0;"><strong style="color: #004d6e;">Plano 1</strong><br><span style="color: #333;">Democratizar a informação</span></p>
+    </div>
+    <div style="background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 2rem; text-align: center;">
+      <h3 style="color: #fced00; font-size: 1.6rem; margin-bottom: 0.5rem;">R$ 60mil</h3>
+      <p style="margin: 0;"><strong style="color: #004d6e;">Plano 2</strong><br><span style="color: #333;">Acesso a direitos</span></p>
+    </div>
+    <div style="background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 2rem; text-align: center;">
+      <h3 style="color: #fced00; font-size: 1.6rem; margin-bottom: 0.5rem;">R$ 80mil</h3>
+      <p style="margin: 0;"><strong style="color: #004d6e;">Plano 3</strong><br><span style="color: #333;">Garantir autonomia da mulher</span></p>
+    </div>
+    <div style="background: #004d6e; border-radius: 1rem; padding: 2rem; text-align: center; color: white;">
+      <h3 style="color: #fced00; font-size: 1.6rem; margin-bottom: 0.5rem;">R$ 380mil</h3>
+      <p style="margin: 0;"><strong>Projeto Completo</strong></p>
+    </div>
+  </div>
+</section>
+
+  <section class="apoio" id="formulario" style="background-color: #f9f9f9; padding: 5rem 1.5rem;">
+  <h2 style="text-align: center; font-size: 2.2rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #004d6e; margin-bottom: 0.5rem;">
+    Seja um apoiador
+  </h2>
+  <p style="text-align:center; max-width: 600px; margin: 0 auto 3rem auto; font-size: 1rem; color: #333;">
+    Preencha o formulário abaixo e nossa equipe entrará em contato para formalizar seu apoio.
+  </p>
+  <form action="/form" method="POST" style="max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+    <input type="text" name="nome" placeholder="Nome completo" required style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+    <input type="email" name="email" placeholder="E-mail" required style="padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+    <input type="text" name="telefone" placeholder="Telefone" style="padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+    <select name="tipoApoio" required style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+      <option value="">Tipo de apoio</option>
+      <option value="Doação Pessoa Física">Doação Pessoa Física</option>
+      <option value="Doação Pessoa Jurídica">Doação Pessoa Jurídica</option>
+      <option value="Emenda Parlamentar">Emenda Parlamentar</option>
+    </select>
+    <input type="text" name="valorEstimado" placeholder="Valor estimado (opcional)" style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+    <textarea name="mensagem" placeholder="Mensagem ou intenção de apoio" style="grid-column: span 2; padding: 1rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; min-height: 120px;"></textarea>
+    <button type="submit" style="grid-column: span 2; background-color: #004d6e; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
+      Enviar Intenção
+    </button>
+  </form>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Projeto Laços Atípicos. Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>
